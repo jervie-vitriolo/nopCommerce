@@ -65,6 +65,7 @@ namespace Nop.Services.Media
         /// <param name="config">Config</param>
         /// <param name="dataProvider">Data provider</param>
         /// <param name="fileProvider">File provider</param>
+        /// <param name="pictureBinaryRepository">PictureBinary repository</param>
         public AzurePictureService(IRepository<Picture> pictureRepository,
             IRepository<ProductPicture> productPictureRepository,
             ISettingService settingService,
@@ -77,7 +78,7 @@ namespace Nop.Services.Media
             NopConfig config,
             IDataProvider dataProvider,
             INopFileProvider fileProvider,
-            IPictureBinaryService pictureBinaryService)
+            IRepository<PictureBinary> pictureBinaryRepository)
             : base(pictureRepository,
                 productPictureRepository,
                 settingService,
@@ -88,7 +89,7 @@ namespace Nop.Services.Media
                 mediaSettings,
                 dataProvider,
                 fileProvider,
-                pictureBinaryService)
+                pictureBinaryRepository)
         {
             this._cacheManager = cacheManager;
             this._mediaSettings = mediaSettings;

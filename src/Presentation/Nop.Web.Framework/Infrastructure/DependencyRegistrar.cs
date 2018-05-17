@@ -234,7 +234,7 @@ namespace Nop.Web.Framework.Infrastructure
             builder.RegisterType<EventPublisher>().As<IEventPublisher>().SingleInstance();
             builder.RegisterType<SubscriptionService>().As<ISubscriptionService>().SingleInstance();
             builder.RegisterType<SettingService>().As<ISettingService>().InstancePerLifetimeScope();
-
+            
 
             builder.RegisterType<ActionContextAccessor>().As<IActionContextAccessor>().InstancePerLifetimeScope();
 
@@ -246,9 +246,6 @@ namespace Nop.Web.Framework.Infrastructure
                 builder.RegisterType<AzurePictureService>().As<IPictureService>().InstancePerLifetimeScope();
             else
                 builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
-
-            //picture binary service
-            builder.RegisterType<PictureBinaryService>().As<IPictureBinaryService>().InstancePerLifetimeScope();
 
             //installation service
             if (!DataSettingsHelper.DatabaseIsInstalled())

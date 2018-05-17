@@ -13,7 +13,7 @@ namespace Nop.Core.Domain.Media
         /// <summary>
         /// Gets or sets the picture
         /// </summary>
-        public Picture Picture { get; set; }
+        public virtual Picture Picture { get; set; }
         
         /// <summary>
         /// Gets or sets the picture identifier

@@ -2553,7 +2553,7 @@ BEGIN
 	CREATE TABLE [dbo].[PictureBinary]
     (
 		[Id] int IDENTITY(1,1) NOT NULL,
-		[PictureId] int,
+		[PictureId] int NOT NULL,
 		[BinaryData] [varbinary](max) NULL,		
 		PRIMARY KEY CLUSTERED 
 		(
@@ -2561,14 +2561,22 @@ BEGIN
 		) WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON)
 	)
 
-	--copy exists data
+	--copy existing data
 	INSERT INTO [dbo].[PictureBinary](PictureId, BinaryData)
 	SELECT [Id], [PictureBinary] FROM [dbo].[Picture]
+
+	ALTER TABLE dbo.Picture	DROP COLUMN [PictureBinary]
 
 END
 GO
 
+
+IF EXISTS (SELECT *  FROM sys.foreign_keys  WHERE object_id = OBJECT_ID(N'PictureBinary_Picture') AND parent_object_id = OBJECT_ID(N'PictureBinary'))
+	ALTER TABLE [PictureBinary] DROP CONSTRAINT [PictureBinary_Picture]
+GO
+
 ALTER TABLE [dbo].[PictureBinary] WITH CHECK ADD CONSTRAINT [PictureBinary_Picture] FOREIGN KEY(PictureId)
 REFERENCES [dbo].[Picture] ([Id])
+ON DELETE CASCADE
 GO
 
