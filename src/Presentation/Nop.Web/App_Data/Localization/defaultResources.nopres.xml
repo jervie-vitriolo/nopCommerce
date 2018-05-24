@@ -13174,7 +13174,7 @@
     <Value>Re-indexing database tables complete</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.System.Maintenance.ReIndexTables.Lable">
-    <Value>Modifies an existing tables by rebuilding the index. When you execute re-indexing on a table, only the statistics associates with indexes are updated. Automatic or manual statistics created on the table (instead of an index) are not updated.</Value>
+    <Value>Modifies existing tables by rebuilding the index. When you execute re-indexing in a table, only the statistics associated with the indexes are updated. Automatic or manual statistics created in the table (instead of an index) are not updated.</Value>
   </LocaleResource>
   <LocaleResource Name="Admin.System.Maintenance.ReIndexTables.Progress">
     <Value>Processing re-indexing...</Value>
