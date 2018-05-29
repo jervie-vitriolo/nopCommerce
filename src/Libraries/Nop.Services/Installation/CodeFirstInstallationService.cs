@@ -6122,7 +6122,7 @@ namespace Nop.Services.Installation
                 ExportImportProductsCountInOneFile = 500,
                 ExportImportSplitProductsFile = false,
                 ExportImportRelatedEntitiesByName = true,
-                CountDisplayedYearsDatePicker = 2
+                CountDisplayedYearsDatePicker = 1
             });
 
             settingService.SaveSetting(new LocalizationSettings
